@@ -120,19 +120,15 @@ padding: 0;
 
 
 body{
-	
 	/*#0E333C*/
-	
-background:/*#f0f0f0*/seagreen;
-line-height: 1.3em;
-font-family: "Comic Sans MS",Lucida Grande,Tahoma,Arial,Verdana,sans-serif;
-font-size: 15px;
+    background:/*#f0f0f0*/seagreen;
+    line-height: 1.3em;
+    font-family: "Comic Sans MS",Lucida Grande,Tahoma,Arial,Verdana,sans-serif;
+    font-size: 15px;
 }
 
-span{
-	
-	background:#ffff00;
-	
+span{	
+    background:#ffff00;
 }
 
 p{
@@ -146,19 +142,19 @@ p{
 }    
     
 tbody{
-line-height: 1.2em;
-font-family: "Arial",Verdana,sans-serif;
-font-size: 14px;
+    line-height: 1.2em;
+    font-family: "Arial",Verdana,sans-serif;
+    font-size: 14px;
 }
 
 #main {
 /*background: #555 url('images/maincontainerbg.gif') repeat-x top center;*/
 /* background: transparent url('images/maincontainerbg.gif') repeat-x top center; */
-width: 91%/*984px*/;
-height: auto;
+    width: 91%/*984px*/;
+    height: auto;
 /* margin: 0 auto; Para que todo quede mejor...*/
-position: relative;
-margin-top: -2px;
+    position: relative;
+    margin-top: -2px;
 }
 
 
@@ -174,23 +170,22 @@ div.avatar {
 }
 
 #cuerpocontainer {
-background: url('mg.png') no-repeat right top /*#c2c2c2*/#E9FF53;
-width: /*940px*/87%;
-height: auto;
-padding: 10px;
-border-radius: 5px;
-box-shadow: 0px 0px 20px #C13030;
-margin: 0 auto;
-
-float: right;
+    background: url('mg.png') no-repeat right top /*#c2c2c2*/#E9FF53;
+    width: /*940px*/87%;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px #C13030;
+    margin: 0 auto;
+    float: right;
 }
 
 .box_title {
    background: #e3db00;
     /*border: 1px solid #CCC;*/
     padding: 2px 0px 5px;
-	width: 310px;
-	height:auto;
+    width: 310px;
+    height:auto;
 }
 
 .box_txt{

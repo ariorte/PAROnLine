@@ -17,7 +17,7 @@ public class Productos {
     private int precioUnit;
     private String nombre_img;
     private String id_categoria;
-
+    
     public Productos() {
     }
 

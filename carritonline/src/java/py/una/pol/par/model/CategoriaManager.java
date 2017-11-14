@@ -19,6 +19,36 @@ import py.una.pol.par.util.conectar_db;
  */
 public class CategoriaManager {
     
+    public CategoriaManager() {
+    }
+  
+     public static ArrayList<Categoria> getAll() {
+        ArrayList<Categoria> retValue = new ArrayList<Categoria>();
+
+        Connection conectar = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conectar = conectar_db.getConnection();
+            pstmt = conectar.prepareStatement("select id_categoria, nombre_categoria from categorias");
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Categoria c = new Categoria();
+                c.setIdCategoria(rs.getString(1));
+                c.setDescripcion(rs.getString(2));
+                retValue.add(c);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriaManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            conectar_db.closeConnection(conectar);
+        }
+
+        return retValue;
+    }
+    
     public boolean insertar(Categoria c) {
         boolean retValue = true;
 
@@ -27,7 +57,7 @@ public class CategoriaManager {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("insert into categoria (descripcion) values (?)");
+            pstmt = conectar.prepareStatement("insert into categorias (nombre_categoria) values (?)");
             pstmt.setString(1, c.getDescripcion());
             pstmt.execute();
 
@@ -56,9 +86,9 @@ public class CategoriaManager {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("update categoria set descripcion = ? where id_categoria = ?");
+            pstmt = conectar.prepareStatement("update categorias set nombre_categoria = ? where id_categoria = ?");
             pstmt.setString(1, c.getDescripcion());
-            pstmt.setInt(2, c.getIdCategoria());
+            pstmt.setString(2, c.getIdCategoria());
             pstmt.execute();
 
         } catch (SQLException ex) {
@@ -79,8 +109,8 @@ public class CategoriaManager {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("delete from categoria where id_categoria = ?");
-            pstmt.setInt(1, c.getIdCategoria());
+            pstmt = conectar.prepareStatement("delete from categorias where id_categoria = ?");
+            pstmt.setString(1, c.getIdCategoria());
             pstmt.execute();
 
         } catch (SQLException ex) {
@@ -93,7 +123,7 @@ public class CategoriaManager {
         return retValue;
     }
 
-    public Categoria getCategoriaById(int id) {
+    public Categoria getCategoriaById(String id) {
         Categoria retValue = null;
 
         Connection conectar = null;
@@ -102,8 +132,8 @@ public class CategoriaManager {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("select descripcion from categoria where id_categoria = ?");
-            pstmt.setInt(1, id);
+            pstmt = conectar.prepareStatement("select nombre_categoria from categorias where id_categoria = ?");
+            pstmt.setString(1, id);
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 retValue = new Categoria();
@@ -119,31 +149,10 @@ public class CategoriaManager {
 
         return retValue;
     }
-    
-    public ArrayList<Categoria> getAll() {
-        ArrayList<Categoria> retValue = new ArrayList<Categoria>();
 
-        Connection conectar = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-
-        try {
-            conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("select id_categoria, descripcion from categoria");
-            rs = pstmt.executeQuery();
-            while (rs.next()) {
-                Categoria c = new Categoria();
-                c.setIdCategoria(rs.getInt(1));
-                c.setDescripcion(rs.getString(2));
-                retValue.add(c);
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(CategoriaManager.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            conectar_db.closeConnection(conectar);
-        }
-
-        return retValue;
+    public Categoria getCategoriaById(int idCat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+   
 }

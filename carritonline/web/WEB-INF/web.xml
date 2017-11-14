@@ -21,7 +21,7 @@
     </servlet>
     <servlet>
         <servlet-name>CategoriaServlet</servlet-name>
-        <servlet-class>py.una.pol.par.controllers.CategoriaServlet</servlet-class>
+        <servlet-class>py.una.pol.par.controllers.CategoriaServlet1</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ParOnlineWS</servlet-name>
@@ -31,6 +31,14 @@
     <servlet>
         <servlet-name>AgregarCarrito</servlet-name>
         <servlet-class>py.una.pol.par.controllers.AgregarCarrito</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoriaServlets</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.CategoriaServlets</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsuariosServlet</servlet-name>
+        <servlet-class>py.una.pol.par.controllers.UsuariosServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BuscadorServlet</servlet-name>
@@ -59,6 +67,14 @@
     <servlet-mapping>
         <servlet-name>AgregarCarrito</servlet-name>
         <url-pattern>/AgregarCarrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoriaServlets</servlet-name>
+        <url-pattern>/CategoriaServlets</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuariosServlet</servlet-name>
+        <url-pattern>/UsuariosServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -102,13 +102,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("/images/");
       out.print( p.getNombre_img());
       out.write(".png')\"></div>\n");
-      out.write("\t\t<p align=\"center\"> Precio: ");
+      out.write("\t\t<p align=\"center\"> <b>Precio:</b> ");
       out.print(p.getPrecioUnit() );
-      out.write(" <br>\t\t\t\t\n");
+      out.write(" <br>\t\t\t\n");
       out.write("                <!--<p align=\"center\"> <a href=\"#\">Modificar</a> ||-->\n");
-      out.write("                <a href=\"producto.jsp?id=");
+      out.write("                <a href=\"detalleProducto.jsp?id=");
       out.print(p.getId_producto() );
-      out.write("\">Añadir al carrito</a></p>  \n");
+      out.write("\">Ver detalles</a></p>  \n");
       out.write("               \n");
       out.write("\n");
       out.write("                        </div>\n");

@@ -10,20 +10,28 @@ package py.una.pol.par.entities;
  * @author fabricio
  */
 public class Categoria {
-    private int idCategoria;
+    private String idCategoria;
     private String descripcion;
+
+    public Categoria() {
+    }
+
+    public Categoria(String idCategoria, String descripcion) {
+        this.idCategoria = idCategoria;
+        this.descripcion = descripcion;
+    }
 
     /**
      * @return the idCategoria
      */
-    public int getIdCategoria() {
+    public String getIdCategoria() {
         return idCategoria;
     }
 
     /**
      * @param idCategoria the idCategoria to set
      */
-    public void setIdCategoria(int idCategoria) {
+    public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
 
@@ -40,4 +48,12 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    @Override
+    public String toString() {
+        return "Categoria{" + "idCategoria=" + idCategoria + ", descripcion=" + descripcion + '}';
+    }
+    
+    
+    
 }

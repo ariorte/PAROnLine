@@ -21,42 +21,42 @@
     <body>
         <div id='main'>
             <div id='cuerpocontainer'>
-                <h1>Bienvenid@ <script language="javascript">  
-               // document.write(name);
-	</script> a CarritOnline!</h1>
+                <h1>Bienvenid@ a CarritOnline!</h1>
                 <hr>
                 <nav>
                     <jsp:include page="menu.jsp" />
                </nav>
                  <hr>
                 <br>
-     
-                
-                 <%
-    HttpSession sesion = request.getSession(true);
+                <h2>Lista del carrito de compras</h2>
+                <hr>
+                <br>
+  <%HttpSession sesion = request.getSession(true);
     ArrayList<Item> articulos = (ArrayList) sesion.getAttribute("carrito");
-    
             //sesion.getAttribute("carrito", articulos);
             if (articulos == null) {
             %> 
-
             nada
-<%          }else{
-%>
-            hay algo
-<%                }
+            <%}else{%>
+<%for (Item x : articulos) {
+       Productos prod = ProductosManager.getProductoById(x.getId_producto());%> 
+ - <%= prod.getDescripcion()  %>; Unidad/es: <%= x.getCantidad() %>, Precio: <%= x.getCantidad() * prod.getPrecioUnit() %><br>
 
+ <%}%>
+
+<%          
             int subtotal =0;
+            int totalpagar=0;
             for (Item p : articulos) {
-            subtotal = subtotal + p.getCantidad() ;
+            subtotal = subtotal + p.getCantidad();
+            totalpagar = totalpagar + p.getPrecio();
 }
-%>
+%>    
 
+Total a pagar: <%= totalpagar  %> Gs.
 
-
-
-                
-</div>
+<%}%>
+            </div>
         </div>
     </body>
 </html>

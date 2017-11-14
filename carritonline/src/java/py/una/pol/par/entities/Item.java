@@ -11,18 +11,25 @@ package py.una.pol.par.entities;
  */
 public class Item {
     private String id_producto;
-    //private int precio;
+    private int precio;
     private int cantidad;
 
     public Item() {
     }
 
-    public Item(String id_producto, /*int precio,*/ int cantidad) {
+    public Item(String id_producto, int cantidad) {
         this.id_producto = id_producto;
-     //   this.precio = precio;
         this.cantidad = cantidad;
     }
 
+    public Item(String id_producto, int precio, int cantidad) {
+        this.id_producto = id_producto;
+        this.cantidad = cantidad;
+        this.precio = precio * this.cantidad;
+        
+    }
+
+  
     public String getId_producto() {
         return id_producto;
     }
@@ -30,7 +37,7 @@ public class Item {
     public void setId_producto(String id_producto) {
         this.id_producto = id_producto;
     }
-/*
+
     public int getPrecio() {
         return precio;
     }
@@ -38,7 +45,7 @@ public class Item {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-*/
+
     public int getCantidad() {
         return cantidad;
     }
@@ -51,6 +58,8 @@ public class Item {
     public String toString() {
         return "Item{" + "id_producto=" + id_producto + ", cantidad=" + cantidad + '}';
     }
+
+    
     
     
     

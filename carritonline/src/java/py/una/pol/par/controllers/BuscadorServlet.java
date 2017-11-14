@@ -50,7 +50,7 @@ public class BuscadorServlet extends HttpServlet {
         if ("anhadir".equals(vaccion)) {
             String idProducto = request.getParameter("idproducto");
              int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-            
+             int precio = 0;
             if (articulos.size()>0 ) {
                 for (Item i: articulos) {
                     if (idProducto.equals(i.getId_producto())) {
@@ -61,7 +61,7 @@ public class BuscadorServlet extends HttpServlet {
                 }
             }
             if (flag== false) {
-                articulos.add(new Item(idProducto,cantidad/*,precio*/));
+                articulos.add(new Item(idProducto,cantidad,precio));
             }
             sesion.setAttribute("carrito", articulos);
             response.sendRedirect("index.jsp");

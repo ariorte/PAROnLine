@@ -86,10 +86,7 @@ public class ProductosManager {
 
         return retValue;
          
-         
-         
     }
-     
      
      public boolean insertar(Productos p) {
         boolean retValue = true;

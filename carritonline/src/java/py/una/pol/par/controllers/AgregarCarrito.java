@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import py.una.pol.par.entities.Item;
+import py.una.pol.par.entities.Productos;
+import py.una.pol.par.model.ProductosManager;
 
 /**
  *
@@ -48,19 +50,27 @@ public class AgregarCarrito extends HttpServlet {
        boolean flag = false;
         if ("anhadir".equals(vaccion)) {
             String idProducto = request.getParameter("idproducto");
-             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-            
-            if (articulos.size()>0 ) {
-                for (Item i: articulos) {
-                    if (idProducto.equals(i.getId_producto())) {
-                        i.setCantidad(cantidad);
-                        flag=true;
-                        break;
+            int cantidad = Integer.parseInt(request.getParameter("cantidad")); 
+            Productos prod = ProductosManager.getProductoById(idProducto);
+            int precio= prod.getPrecioUnit();
+            int cont=0;
+            if (cantidad!=0) {
+                if (articulos.size()>0 ) {
+                    for (Item i: articulos) {
+                        if (idProducto.equals(i.getId_producto())) {                     
+                            i.setPrecio(precio);
+                            i.setCantidad(cantidad);
+                            cont++;
+                            flag=true;
+                            break;
+                        }
                     }
                 }
-            }
-            if (flag== false) {
-                articulos.add(new Item(idProducto,cantidad/*,precio*/));
+                if (flag== false) {
+                    articulos.add(new Item(idProducto,precio,cantidad));
+                }
+            }else{
+                articulos.remove(cont);
             }
             sesion.setAttribute("carrito", articulos);
             response.sendRedirect("index.jsp");
