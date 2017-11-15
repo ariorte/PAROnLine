@@ -149,6 +149,15 @@ public class UsuariosServlet extends HttpServlet {
 
 
             }
+        
+            if("logout".equals(vaccion)){
+                HttpSession objsesion = request.getSession(true);
+                objsesion.setAttribute("usuario", null);
+                RequestDispatcher rd = request.getRequestDispatcher("/logIn.jsp");
+                        if (rd != null) {
+                            rd.forward(request, response);
+                        }
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
