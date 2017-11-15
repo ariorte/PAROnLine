@@ -170,7 +170,7 @@ div.avatar {
 }
 
 #cuerpocontainer {
-    background: url('mg.png') no-repeat right top /*#c2c2c2*/#E9FF53;
+    background: #E9FF53;
     width: /*940px*/87%;
     height: auto;
     padding: 10px;
