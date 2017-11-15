@@ -52,7 +52,7 @@ public class CategoriaServlet extends HttpServlet {
         if ("Eliminar".equals(vaccion)) {
             int idCat = Integer.valueOf(request.getParameter("vid"));
             Categoria c = new Categoria();
-            c.setIdCategoria(idCat);
+            c.setIdCategoria(String.valueOf(idCat));
 
             cm.delete(c);
 
@@ -97,7 +97,7 @@ public class CategoriaServlet extends HttpServlet {
             int idCat = Integer.valueOf(request.getParameter("vid"));
             String desc = request.getParameter("descripcion");
             Categoria c = new Categoria();
-            c.setIdCategoria(idCat);
+            c.setIdCategoria(String.valueOf(idCat));
             c.setDescripcion(desc);
 
             cm.update(c);
