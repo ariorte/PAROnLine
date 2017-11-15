@@ -28,6 +28,12 @@ String usuario = (String)objsesion.getAttribute("usuario");
                 <li><a href="<%= request.getContextPath()%>/logIn.jsp" title="Iniciar Sesión">Iniciar Sesión</a></li>        
                   <% }else{ %>
                 <li><a href="#" title="Productos"><%= usuario %></a></li>
+                <li>
+                    <form id="form-logout" action="UsuariosServlet" method="post">
+                        <input type="hidden" name="vaccion" value="logout"/>
+                        <a href="#" onclick="document.getElementById('form-logout').submit()" title="Cerra Sesión">Cerrar Sesión</a>
+                    </form>
+                </li>
                 <% } %>
                 <li><a href="<%= request.getContextPath()%>/carrito.jsp" title="Carrito">Carrito <img src="<%= request.getContextPath()%>/images/carrito1.png" width="24px" height="24px"> ( <%= subtotal %> )</a></li>
                 <li>
