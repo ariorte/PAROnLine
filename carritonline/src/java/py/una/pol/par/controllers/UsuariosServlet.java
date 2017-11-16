@@ -120,6 +120,7 @@ public class UsuariosServlet extends HttpServlet {
         if ("login".equals(vaccion)) {
                 String usuario = request.getParameter("usuario");
                 String passwd = request.getParameter("contrasenia");
+                int iduser=-1;
                 UsuarioManager o = new UsuarioManager();
                 if (usuario != null && !"".equals(usuario.trim())
                         && passwd != null && !"".equals(passwd)) {
@@ -127,6 +128,7 @@ public class UsuariosServlet extends HttpServlet {
                     if (o.LogIn(usuario, passwd)) {
                         HttpSession objsesion = request.getSession(true);
                         objsesion.setAttribute("usuario", usuario);
+                        
                         //Login Satisfactorio
                         RequestDispatcher rd = request.getRequestDispatcher("/producto.jsp");
                         if (rd != null) {
@@ -141,7 +143,7 @@ public class UsuariosServlet extends HttpServlet {
                     }
                 } else {
                     request.setAttribute("mensajeError", "usuario/contrasenha incorrecto");
-                    RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/logIn.jsp");
                     if (rd != null) {
                         rd.forward(request, response);
                     }
@@ -149,6 +151,15 @@ public class UsuariosServlet extends HttpServlet {
 
 
             }
+        
+        if("logout".equals(vaccion)){
+                HttpSession objsesion = request.getSession(true);
+                objsesion.setAttribute("usuario", null);
+                RequestDispatcher rd = request.getRequestDispatcher("/logIn.jsp");
+                        if (rd != null) {
+                            rd.forward(request, response);
+                        }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -123,13 +123,36 @@ public UsuarioManager() {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("select descripcion from categoria where id_categoria = ?");
+            pstmt = conectar.prepareStatement("select login_name from usuario where id_usuario = ?");
             pstmt.setInt(1, id);
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 retValue = new Usuarios();
-               // retValue.setIdCategoria(id);
-               // retValue.setDescripcion(rs.getString(1));
+                retValue.setLoginName(rs.getString(1));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriaManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            conectar_db.closeConnection(conectar);
+        }
+
+        return retValue;
+    }
+    
+    public int getUsuarioByLoginName(String lname) {
+        int retValue = 0;
+        Connection conectar = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conectar = conectar_db.getConnection();
+            pstmt = conectar.prepareStatement("select tipo_usuario from usuario where login_name = ?");
+            pstmt.setString(1, lname);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                retValue = rs.getInt(1);
             }
 
         } catch (SQLException ex) {
@@ -210,7 +233,9 @@ public UsuarioManager() {
     
     public static void main(String[] args) {
         UsuarioManager o = new UsuarioManager();
-        System.out.println(o.LogIn("jfaquinopano","123456"));
+        String user = "jaquino";
+        System.out.println(o.LogIn(user,"1234"));
+        System.out.println(o.getUsuarioByLoginName(user));
     }
 }
 

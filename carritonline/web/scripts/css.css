@@ -170,7 +170,7 @@ div.avatar {
 }
 
 #cuerpocontainer {
-    background: url('mg.png') no-repeat right top /*#c2c2c2*/#E9FF53;
+    background: #F8FCE0;
     width: /*940px*/87%;
     height: auto;
     padding: 10px;
@@ -181,7 +181,7 @@ div.avatar {
 }
 
 .box_title {
-   background: #e3db00;
+  /* background: #e3db00;
     /*border: 1px solid #CCC;*/
     padding: 2px 0px 5px;
     width: 310px;
@@ -189,7 +189,7 @@ div.avatar {
 }
 
 .box_txt{
-    background: #e3db00;/* no-repeat;*/
+    background: #00a3e3;/* no-repeat;*/
    /* text-shadow: 0px 1px 0px #000*/
     float: left;
     padding: 5px 0px 0px 10px;
@@ -202,7 +202,7 @@ div.avatar {
 }
 
 .box_cuerpo {
-    background: #a2a298;
+    background: #ECEFDA;
     border-width: medium 1px 1px;
     /*border-style: none solid solid;*/
 	border-style: none;
