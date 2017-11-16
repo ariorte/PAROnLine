@@ -170,7 +170,15 @@ div.avatar {
 }
 
 #cuerpocontainer {
+<<<<<<< HEAD
     background: #F8FCE0;
+=======
+<<<<<<< HEAD
+    background: #F8FCE0;
+=======
+    background: #E9FF53;
+>>>>>>> e84f7f73969c0a9534261c49567bab5644d7f319
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
     width: /*940px*/87%;
     height: auto;
     padding: 10px;

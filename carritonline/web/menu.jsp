@@ -33,18 +33,35 @@
                 <% if (usuario==null) { %>
                 <li><a href="<%= request.getContextPath()%>/logIn.jsp" title="Iniciar Sesión">Iniciar Sesión</a></li>        
                   <% }else{ %>
+<<<<<<< HEAD
                 <li><a href="#" title="Usuario <%= usuario %>"><%= usuario %></a></li>
+=======
+<<<<<<< HEAD
+                <li><a href="#" title="Usuario <%= usuario %>"><%= usuario %></a></li>
+=======
+                <li><a href="#" title="Productos"><%= usuario %></a></li>
+>>>>>>> e84f7f73969c0a9534261c49567bab5644d7f319
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
                 <li>
                     <form id="form-logout" action="UsuariosServlet" method="post">
                         <input type="hidden" name="vaccion" value="logout"/>
                         <a href="#" onclick="document.getElementById('form-logout').submit()" title="Cerra Sesión">Cerrar Sesión</a>
                     </form>
                 </li>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
                 <% if (tipoUser==0) {%>
                     <li><a href="<%= request.getContextPath()%>/admin/abm-productos.jsp" title="ABM Productos">ABM-Prod</a></li>
                     <li><a href="<%= request.getContextPath()%>/admin/abm-categorias.jsp" title="ABM Categorias">ABM-Categ</a></li>
                     <li><a href="<%= request.getContextPath()%>/admin/abm-usuarios.jsp" title="ABM Usuarios">ABM-User</a></li>
                     <%}%>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e84f7f73969c0a9534261c49567bab5644d7f319
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
                 <% } %>
                 <li><a href="<%= request.getContextPath()%>/carrito.jsp" title="Carrito">Carrito <img src="<%= request.getContextPath()%>/images/carrito1.png" width="24px" height="24px"> ( <%= subtotal %> )</a></li>
                 <li>

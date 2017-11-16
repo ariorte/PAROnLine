@@ -3,8 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+<<<<<<< HEAD
 import py.una.pol.par.entities.Usuarios;
 import py.una.pol.par.model.UsuarioManager;
+=======
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
 import py.una.pol.par.entities.Item;
 import java.util.ArrayList;
 
@@ -49,8 +52,11 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+<<<<<<< HEAD
       out.write("\n");
       out.write("\n");
+=======
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
       out.write(" ");
 
   HttpSession sesion = request.getSession(true);
@@ -61,6 +67,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
                     for (Item p : articulos) {
                     subtotal = subtotal + p.getCantidad();
                     totalpagar= totalpagar+ p.getPrecio();
+<<<<<<< HEAD
                     }           
             }
             
@@ -70,6 +77,13 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     UsuarioManager os = new UsuarioManager();
     tipoUser = os.getUsuarioByLoginName(usuario);
 
+=======
+                }           
+}
+            
+HttpSession objsesion = request.getSession(false);
+String usuario = (String)objsesion.getAttribute("usuario");
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
  
       out.write(" \n");
       out.write("<ul id=\"appleNav\">\n");
@@ -101,6 +115,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </form>\n");
       out.write("                </li>\n");
       out.write("                ");
+<<<<<<< HEAD
  if (tipoUser==0) {
       out.write("\n");
       out.write("                    <li><a href=\"");
@@ -116,6 +131,8 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
 }
       out.write("\n");
       out.write("                ");
+=======
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
  } 
       out.write("\n");
       out.write("                <li><a href=\"");

@@ -8,7 +8,10 @@ package py.una.pol.par.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import javax.servlet.RequestDispatcher;
+=======
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +19,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import py.una.pol.par.entities.Item;
+<<<<<<< HEAD
 import py.una.pol.par.entities.Productos;
 import py.una.pol.par.entities.Usuarios;
 import py.una.pol.par.model.BuscadorManager;
 import py.una.pol.par.model.UsuarioManager;
+=======
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
 
 /**
  *
@@ -41,7 +47,11 @@ public class BuscadorServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+<<<<<<< HEAD
        String vaccion = request.getParameter("vaccion");
+=======
+        String vaccion = request.getParameter("vaccion");
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
        request.setAttribute("vaccion", vaccion);
        
        HttpSession sesion = request.getSession(true);
@@ -72,6 +82,7 @@ public class BuscadorServlet extends HttpServlet {
             response.sendRedirect("index.jsp");
         }
         
+<<<<<<< HEAD
        
         
 
@@ -96,6 +107,8 @@ public class BuscadorServlet extends HttpServlet {
            
         }
         
+=======
+>>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
         
     }
 
