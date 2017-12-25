@@ -18,7 +18,7 @@ import py.una.pol.par.model.CategoriaManager;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class CategoriaServlets extends HttpServlet {
 

@@ -8,7 +8,7 @@ package py.una.pol.par.entities;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class TransaccionesDet {
     private int idTransaccion;

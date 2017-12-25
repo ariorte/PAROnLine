@@ -7,7 +7,7 @@ package py.una.pol.par.entities;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class Productos {
     

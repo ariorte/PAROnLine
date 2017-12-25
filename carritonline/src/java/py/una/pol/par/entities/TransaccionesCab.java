@@ -9,7 +9,7 @@ package py.una.pol.par.entities;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class TransaccionesCab {
     private int ID_Transacción; 

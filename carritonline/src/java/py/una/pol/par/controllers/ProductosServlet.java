@@ -19,7 +19,7 @@ import py.una.pol.par.model.ProductosManager;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 @WebServlet(name = "ProductosServlet", urlPatterns = {"/ProductosServlet"})
 public class ProductosServlet extends HttpServlet {

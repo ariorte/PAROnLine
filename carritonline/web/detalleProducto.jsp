@@ -1,7 +1,7 @@
 <%-- 
     Document   : detalleProducto
     Created on : 02/11/2017, 10:08:36 AM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 
 

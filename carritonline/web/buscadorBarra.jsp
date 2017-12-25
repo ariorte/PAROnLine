@@ -1,7 +1,7 @@
 <%-- 
     Document   : buscadorBarra
     Created on : 26/10/2017, 01:15:35 PM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

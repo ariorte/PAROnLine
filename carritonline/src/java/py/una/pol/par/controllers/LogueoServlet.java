@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 @WebServlet(name = "LogueoServlet", urlPatterns = {"/LogueoServlet"})
 public class LogueoServlet extends HttpServlet {

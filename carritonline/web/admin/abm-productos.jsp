@@ -1,7 +1,7 @@
 <%-- 
     Document   : abm-productos
     Created on : 09/11/2017, 12:05:37 AM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 <%@page import="py.una.pol.par.model.ProductosManager"%>
 <%@page import="java.util.ArrayList"%>

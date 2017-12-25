@@ -1,7 +1,7 @@
 <%-- 
     Document   : abm-categorias
     Created on : 09/11/2017, 12:07:26 AM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 
 <%@page import="py.una.pol.par.model.CategoriaManager"%>

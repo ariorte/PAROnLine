@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 25/10/2017, 07:53:03 AM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 
 <%@page import="py.una.pol.par.model.ProductosManager"%>
@@ -16,15 +16,10 @@
         <%@page import="py.una.pol.par.controllers.s" %>
         <link href="<%= request.getContextPath()%>/scripts/css.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
-        <script language="javascript">
-		
-		//creo una variable
-		//var name =prompt("Bienvenido, cual es tu nombre? ");
-        </script> 
+    <body> 
         <div id='main'>
             <div id='cuerpocontainer'>
-                <h1>Bienvenid@ a CarritOnline!</h1>
+                <h1>Bienvenid@ a CarritOnline!<script src="<%= request.getContextPath()%>/scripts/contador.js"></script></h1>
                 <hr>
                 <nav>
                     <jsp:include page="menu.jsp" />

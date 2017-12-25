@@ -1,7 +1,7 @@
 <%-- 
     Document   : logIn
     Created on : 26/10/2017, 01:17:29 PM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 <%@page import="py.una.pol.par.model.ProductosManager"%>
 <%@page import="java.util.ArrayList"%>

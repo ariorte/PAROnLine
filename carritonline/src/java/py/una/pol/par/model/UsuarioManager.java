@@ -17,7 +17,7 @@ import py.una.pol.par.util.conectar_db;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class UsuarioManager {
     /*
@@ -77,9 +77,14 @@ public UsuarioManager() {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("update categoria set descripcion = ? where id_categoria = ?");
-           // pstmt.setString(1, c.getDescripcion());
-           // pstmt.setInt(2, c.getIdCategoria());
+            pstmt = conectar.prepareStatement("update usuario set nombre = ?, apellido = ?, login_name = ?, contrasena =  ?, tipo_usuario = ? where id_usuario = ?");
+            pstmt.setString(1, c.getNombre());
+            pstmt.setString(2, c.getApellido()); 
+            pstmt.setString(3, c.getLoginName());
+            pstmt.setString(4, c.getContrasena());
+            pstmt.setInt(5, c.getTipoUsuario());
+            pstmt.setInt(6, c.getIdUsuario());
+            
             pstmt.execute();
 
         } catch (SQLException ex) {
@@ -140,6 +145,37 @@ public UsuarioManager() {
         return retValue;
     }
     
+    public Usuarios getUsuarioByIdT(int id) {
+        Usuarios retValue = null;
+
+        Connection conectar = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conectar = conectar_db.getConnection();
+            pstmt = conectar.prepareStatement("select login_name, nombre, apellido, contrasena, tipo_usuario,id_usuario from usuario where id_usuario = ?");
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                retValue = new Usuarios();
+                retValue.setLoginName(rs.getString(1));
+                retValue.setNombre(rs.getString(2));
+                retValue.setApellido(rs.getString(3));
+                retValue.setContrasena(rs.getString(4));
+                retValue.setTipoUsuario(rs.getByte(5));
+                retValue.setIdUsuario(id);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriaManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            conectar_db.closeConnection(conectar);
+        }
+
+        return retValue;
+    }
+    
     public int getUsuarioByLoginName(String lname) {
         int retValue = 0;
         Connection conectar = null;
@@ -149,6 +185,30 @@ public UsuarioManager() {
         try {
             conectar = conectar_db.getConnection();
             pstmt = conectar.prepareStatement("select tipo_usuario from usuario where login_name = ?");
+            pstmt.setString(1, lname);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                retValue = rs.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriaManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            conectar_db.closeConnection(conectar);
+        }
+
+        return retValue;
+    }
+    
+    public int getUsuarioByLoginNameID(String lname) {
+        int retValue = 0;
+        Connection conectar = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conectar = conectar_db.getConnection();
+            pstmt = conectar.prepareStatement("select id_usuario from usuario where login_name = ?");
             pstmt.setString(1, lname);
             rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -231,12 +291,19 @@ public UsuarioManager() {
     
     }
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         UsuarioManager o = new UsuarioManager();
         String user = "jaquino";
         System.out.println(o.LogIn(user,"1234"));
         System.out.println(o.getUsuarioByLoginName(user));
-    }
+        System.out.println(o.getAll());
+        ArrayList<Usuarios> userlist = o.getAll();
+        for (Usuarios u : userlist) {
+                System.out.println(u.getLoginName());
+                System.out.println(u.getIdUsuario());
+        
+        }
+    }*/
 }
 
 

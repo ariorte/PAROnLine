@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class conectar_db {
         public static Connection getConnection() throws SQLException {

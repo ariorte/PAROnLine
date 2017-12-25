@@ -1,7 +1,7 @@
 <%-- 
     Document   : abm-usuarios
     Created on : 09/11/2017, 12:07:13 AM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 
 <%@page import="py.una.pol.par.model.UsuarioManager"%>
@@ -59,7 +59,7 @@
                         <input type="hidden" name="vaccion" value="Eliminar"/>
                         <input type="hidden" name="vid" value="<%= u.getIdUsuario() %>"/>
                         <input type="submit" value="Eliminar"/>
-                    </form> </td>
+                    </form> </td>  
 </tr> 
             <% } %> 
             

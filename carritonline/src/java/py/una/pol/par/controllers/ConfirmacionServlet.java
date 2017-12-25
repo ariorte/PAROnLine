@@ -7,14 +7,22 @@ package py.una.pol.par.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import py.una.pol.par.entities.Categoria;
+import py.una.pol.par.entities.Item;
+import py.una.pol.par.entities.TransaccionesCab;
+import py.una.pol.par.model.CategoriaManager;
+import py.una.pol.par.model.TransaccionManager;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class ConfirmacionServlet extends HttpServlet {
 
@@ -31,21 +39,44 @@ public class ConfirmacionServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet s</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet s at " + request.getContextPath() + "</h1>");
-            out.println(request.getServletPath());
-                    out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        
+        HttpSession sesion = request.getSession(true);
+        ArrayList<Item> articulos = (ArrayList) sesion.getAttribute("carrito");
+        
+        
+        
+        String vaccion = request.getParameter("vaccion");
+        request.setAttribute("vaccion", vaccion);
+        
+        TransaccionManager tm = new TransaccionManager();
+
+        if ("Confirmacion_compra".equals(vaccion)) {
+            int idUser = Integer.valueOf(request.getParameter("viduser"));
+            int totalpagar = Integer.valueOf(request.getParameter("vtotalpagar"));
+            String fechapago = String.valueOf(request.getParameter("vfecha"));
+            String direnvio = "Campus UNA - San Lorenzo, Paraguay";
+            byte idmediopago = 1;
+            int nroTarjeta = 1002001;
+            String estado = "I";
+            TransaccionesCab tc = new TransaccionesCab();
+            tc.setFecha(fechapago);
+            tc.setId_Usuario(idUser);
+            tc.setTotal(totalpagar);
+            tc.setDireccion_de_envio(direnvio);
+            tc.setId_Medio_Pago(idmediopago);
+            tc.setNroTarjeta(nroTarjeta);
+            tc.setEstado(estado);
+            tm.insertar(tc);
+
+             
+            request.setAttribute("carrito", null);
+
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            if (rd != null) {
+                rd.forward(request, response);
+            }
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

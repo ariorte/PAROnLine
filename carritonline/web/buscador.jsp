@@ -1,13 +1,10 @@
 <%-- 
     Document   : buscador
     Created on : 26/10/2017, 01:17:11 PM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 <%@page import="py.una.pol.par.model.ProductosManager"%>
-<<<<<<< HEAD
 <%@page import="py.una.pol.par.model.BuscadorManager"%>
-=======
->>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
 <%@page import="java.util.ArrayList"%>
 <%@page import="py.una.pol.par.entities.Productos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,30 +17,15 @@
         <link href="<%= request.getContextPath()%>/scripts/css.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-<<<<<<< HEAD
         <div id='main'>
             <div id='cuerpocontainer'>
                 <h1>Bienvenid@ a CarritOnline!</h1>
-=======
-        
-                <script language="javascript">
-		
-		//creo una variable
-		//var name =prompt("Bienvenido, cual es tu nombre? ");
-    </script> 
-        <div id='main'>
-            <div id='cuerpocontainer'>
-                <h1>Bienvenid@ <script language="javascript">  
-               // document.write(name);
-	</script> a CarritOnline!</h1>
->>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
                 <hr>
                 <nav>
                     <jsp:include page="menu.jsp" />
                </nav>
                  <hr>
                 <br>
-<<<<<<< HEAD
 <%
  //ArrayList<Productos> lista = (ArrayList<Productos>) request.getAttribute("buscar_producto");
     Productos p = (Productos) request.getAttribute("buscar_producto");
@@ -67,9 +49,6 @@
                         <br>
 </div>
                
-=======
-                
->>>>>>> 37b255a31484276cfd7d58f116f1324056d8f6c1
             </div>
         </div>
                 

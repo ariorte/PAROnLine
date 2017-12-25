@@ -19,7 +19,7 @@ import py.una.pol.par.model.ProductosManager;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class AgregarCarrito extends HttpServlet {
 

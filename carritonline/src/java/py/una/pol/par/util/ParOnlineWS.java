@@ -11,7 +11,7 @@ import javax.jws.WebParam;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 @WebService(serviceName = "ParOnlineWS")
 public class ParOnlineWS {

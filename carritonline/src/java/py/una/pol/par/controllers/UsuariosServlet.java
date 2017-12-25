@@ -21,7 +21,7 @@ import py.una.pol.par.model.UsuarioManager;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class UsuariosServlet extends HttpServlet {
 
@@ -88,23 +88,32 @@ public class UsuariosServlet extends HttpServlet {
 
         if ("Editar".equals(vaccion)) {
             int idUser = Integer.valueOf(request.getParameter("vid"));
-            Usuarios user = um.getUsuarioById(idUser);
-
+            Usuarios user = um.getUsuarioByIdT(idUser);
+            
             request.setAttribute("usuarios", user);
 
-            RequestDispatcher rd = request.getRequestDispatcher("/admin/UserEdit.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin/UserEdit.jsp");
             if (rd != null) {
                 rd.forward(request, response);
             }
         }
 
         if ("GrabarModificado".equals(vaccion)) {
-            
            int idUser = Integer.valueOf(request.getParameter("vid"));
-            String desc = request.getParameter("descripcion");
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String login_name = request.getParameter("login_name");
+            String contrasena = request.getParameter("contrasena");
+            byte tipousuario = Byte.parseByte(request.getParameter("tipousuario"));
+            
+            
             Usuarios user = new Usuarios();
             user.setIdUsuario(idUser);
-            //user.setDescripcion(desc);
+            user.setNombre(nombre);
+            user.setApellido(apellido);
+            user.setLoginName(login_name);
+            user.setContrasena(contrasena);
+            user.setTipoUsuario(tipousuario);
 
             um.update(user);
 
@@ -155,6 +164,8 @@ public class UsuariosServlet extends HttpServlet {
         if("logout".equals(vaccion)){
                 HttpSession objsesion = request.getSession(true);
                 objsesion.setAttribute("usuario", null);
+                HttpSession sesion = request.getSession();
+                sesion.invalidate();
                 RequestDispatcher rd = request.getRequestDispatcher("/logIn.jsp");
                         if (rd != null) {
                             rd.forward(request, response);

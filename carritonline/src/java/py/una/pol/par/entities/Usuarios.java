@@ -7,7 +7,7 @@ package py.una.pol.par.entities;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class Usuarios {
     private int idUsuario; 
@@ -34,7 +34,7 @@ public class Usuarios {
     }
 
     public void setIdUsuario(int id_usuario) {
-        this.idUsuario = idUsuario;
+        this.idUsuario = id_usuario;
     }
 
     public String getNombre() {

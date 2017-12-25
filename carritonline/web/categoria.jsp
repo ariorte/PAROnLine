@@ -1,7 +1,7 @@
 <%-- 
     Document   : categoria
     Created on : 27/10/2017, 09:08:27 PM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 
 <%@page import="py.una.pol.par.model.ProductosManager"%>

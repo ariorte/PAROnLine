@@ -1,4 +1,4 @@
-<%--
+<%-- 
     Document   : menu
     Created on : 27/10/2017, 09:31:16 PM
     Author     : Ariel y Fabricio
@@ -48,13 +48,7 @@
                     <li><a href="<%= request.getContextPath()%>/admin/abm-usuarios.jsp" title="ABM Usuarios">ABM-User</a></li>
                     <%}%>
                 <% } %>
-                <li>
-                    <a href="<%= request.getContextPath()%>/carrito.jsp" title="Carrito">
-                        Carrito 
-                        <img src="<%= request.getContextPath()%>/images/carrito1.png" width="24px" height="24px"> 
-                        ( <%= subtotal %> )
-                    </a>
-                </li>
+                <li><a href="<%= request.getContextPath()%>/carrito.jsp" title="Carrito">Carrito <img src="<%= request.getContextPath()%>/images/carrito1.png" width="24px" height="24px"> ( <%= subtotal %> )</a></li>
                 <li>
                     <form action="BuscadorServlet" method="post">
                         <input type="hidden" value="buscarya" name="vaccion"/>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : ProductoNew
     Created on : 12/11/2017, 02:26:45 AM
-    Author     : fabricio
+    Author     : Ariel y Fabricio
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,8 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+    <link href="<%= request.getContextPath()%>/scripts/css.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+    <body> 
+        <div id='main'>
+            <div id='cuerpocontainer'>
+                <h1>Bienvenid@ a CarritOnline!<script src="<%= request.getContextPath()%>/scripts/contador.js"></script></h1>
+                <hr>
+                <nav>
+                    <jsp:include page="menu.jsp" />
+               </nav>
+                 <hr>
+                <br>
         <h1>Nuevo Producto</h1>
         <form action="/carritonline/ProductosServlet">
             <table>
@@ -43,5 +53,7 @@
             <input type="hidden" name="vaccion" value="GrabarNuevo"/>
             <input type="submit" value="Grabar"/>
         </form>
+            </div>
+        </div>
     </body>
 </html>

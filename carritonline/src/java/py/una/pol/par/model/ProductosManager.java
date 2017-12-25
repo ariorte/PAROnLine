@@ -17,7 +17,7 @@ import py.una.pol.par.util.conectar_db;
 
 /**
  *
- * @author fabricio
+ * @author Ariel y Fabricio
  */
 public class ProductosManager {
 
