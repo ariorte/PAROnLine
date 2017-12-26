@@ -1,0 +1,4 @@
+El archivo 'paronline.backup' es un backup creado con el programa PgAdmin III,
+la misma puede ser restaurada con el mismo programa y debe definir dentro del
+proyecto cual es el puerto del postgres para poder establecer la conexión con
+el proyecto.
