@@ -22,44 +22,42 @@
             <div id='cuerpocontainer'>
                 <h1>Bienvenid@ a CarritOnline!</h1>
                 <hr>
-                <nav>
-                    <jsp:include page="../menu.jsp" />
-               </nav>
-                 <hr>
+                <jsp:include page="../menu.jsp" />
+                <hr>
                 <br>
                 <h2>Moderación de Categorias</h2>
                 <hr>
                 <br>
-                 <!--Cuerpo ini-->
-            <form action="CategoriaNew.jsp">
-            <input type="submit" value="Crear"/>
-            </form>
+                <!--Cuerpo ini-->
+                <form action="CategoriaNew.jsp">
+                    <input type="submit" value="Crear"/>
+                </form>
                 <table border="1">
-                <tr>
-                <td><strong>Id Categoria</strong></td>
-                <td><strong>Descripcion</strong></td>
-                <td><strong>Acciones</strong></td>
-                </tr>       
-                <%ArrayList<Categoria> catalogo = CategoriaManager.getAll();
+                    <tr>
+                        <td><strong>Id Categoria</strong></td>
+                        <td><strong>Descripcion</strong></td>
+                        <td><strong>Acciones</strong></td>
+                    </tr>       
+                    <%ArrayList<Categoria> catalogo = CategoriaManager.getAll();
                     for (Categoria cat : catalogo) {%>
-                <tr>
-                 <td><%= cat.getIdCategoria() %></td>
-                 <td><%= cat.getDescripcion() %></td>
-                 <td> <form action="/carritonline/CategoriaServlets">
-                        <input type="hidden" name="vaccion" value="Editar"/>
-                        <input type="hidden" name="vid" value="<%=cat.getIdCategoria()%>"/>
-                        <input type="submit" value="Editar"/>
-                    </form> <form action="/carritonline/CategoriaServlets">
-                        <input type="hidden" name="vaccion" value="Eliminar"/>
-                        <input type="hidden" name="vid" value="<%=cat.getIdCategoria()%>"/>
-                        <input type="submit" value="Eliminar"/>
-                    </form> </td>
-                </tr>
-                <%}%> 
+                    <tr>
+                        <td><%= cat.getIdCategoria()%></td>
+                        <td><%= cat.getDescripcion()%></td>
+                        <td> <form action="/carritonline/CategoriaServlets">
+                                <input type="hidden" name="vaccion" value="Editar"/>
+                                <input type="hidden" name="vid" value="<%=cat.getIdCategoria()%>"/>
+                                <input type="submit" value="Editar"/>
+                            </form> <form action="/carritonline/CategoriaServlets">
+                                <input type="hidden" name="vaccion" value="Eliminar"/>
+                                <input type="hidden" name="vid" value="<%=cat.getIdCategoria()%>"/>
+                                <input type="submit" value="Eliminar"/>
+                            </form> </td>
+                    </tr>
+                    <%}%> 
                 </table> 
-            <!--Cuerpo fin-->
+                <!--Cuerpo fin-->
             </div>
         </div>
-                
+
     </body>
 </html>

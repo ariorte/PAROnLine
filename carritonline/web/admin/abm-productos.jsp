@@ -20,44 +20,42 @@
             <div id='cuerpocontainer'>
                 <h1>Bienvenid@ a CarritOnline!</h1>
                 <hr>
-                <nav>
-                    <jsp:include page="../menu.jsp" />
-               </nav>
-                 <hr>
+                <jsp:include page="../menu.jsp" />
+                <hr>
                 <h2>Moderación de Productos</h2>
                 <hr> 
-            <!--Cuerpo ini-->
-            <form action="ProductoNew.jsp">
-            <input type="submit" value="Crear"/>
-            </form>
+                <!--Cuerpo ini-->
+                <form action="ProductoNew.jsp">
+                    <input type="submit" value="Crear"/>
+                </form>
                 <table border="1">
-                <tr>
-                <td><strong>Id Producto</strong></td>
-                <td><strong>Descripcion</strong></td>
-                <td><strong>Cantidad disponible</strong></td>
-                <td><strong>Precio x Unidad</strong></td>
-                <td><strong>Acciones</strong></td>
-                </tr>       
-                <%ArrayList<Productos> lista = ProductosManager.getAll();
+                    <tr>
+                        <td><strong>Id Producto</strong></td>
+                        <td><strong>Descripcion</strong></td>
+                        <td><strong>Cantidad disponible</strong></td>
+                        <td><strong>Precio x Unidad</strong></td>
+                        <td><strong>Acciones</strong></td>
+                    </tr>       
+                    <%ArrayList<Productos> lista = ProductosManager.getAll();
                     for (Productos p : lista) {%>
-                <tr>
-                 <td><%= p.getId_producto() %></td>
-                 <td><%= p.getDescripcion() %></td>
-                 <td><%= p.getCantidad() %></td>
-                 <td><%= p.getPrecioUnit() %></td>
-                 <td>  <form action="/carritonline/ProductosServlet">
-                        <input type="hidden" name="vaccion" value="Editar"/>
-                        <input type="hidden" name="vid" value="<%= p.getId_producto() %>"/>
-                        <input type="submit" value="Editar"/>
-                    </form> <form action="/carritonline/ProductosServlet">
-                        <input type="hidden" name="vaccion" value="Eliminar"/>
-                        <input type="hidden" name="vid" value="<%= p.getId_producto() %>"/>
-                        <input type="submit" value="Eliminar"/>
-                    </form>  </td>
-                </tr>
-                <%}%> 
+                    <tr>
+                        <td><%= p.getId_producto()%></td>
+                        <td><%= p.getDescripcion()%></td>
+                        <td><%= p.getCantidad()%></td>
+                        <td><%= p.getPrecioUnit()%></td>
+                        <td>  <form action="/carritonline/ProductosServlet">
+                                <input type="hidden" name="vaccion" value="Editar"/>
+                                <input type="hidden" name="vid" value="<%= p.getId_producto()%>"/>
+                                <input type="submit" value="Editar"/>
+                            </form> <form action="/carritonline/ProductosServlet">
+                                <input type="hidden" name="vaccion" value="Eliminar"/>
+                                <input type="hidden" name="vid" value="<%= p.getId_producto()%>"/>
+                                <input type="submit" value="Eliminar"/>
+                            </form>  </td>
+                    </tr>
+                    <%}%> 
                 </table> 
-            <!--Cuerpo fin-->    
+                <!--Cuerpo fin-->    
             </div>
         </div>
     </body>

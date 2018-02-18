@@ -20,28 +20,26 @@
             <div id='cuerpocontainer'>
                 <h1>Bienvenid@ a CarritOnline!</h1>
                 <hr>
-                <nav>
-                    <jsp:include page="menu.jsp" />
-               </nav>
-                 <hr>
+                <jsp:include page="menu.jsp" />
+                <hr>
                 <br>
                 <!--Inicio cuerpo-->
                 <div id='caja'>
                     <form id="form-login" action="UsuariosServlet" method="post" autocomplete="off">
-                    <input type="hidden" name="accion" value="login"/>
-                    <p align="center">
-                    <!--A saber, el atributo for funciona como el id.-->
-                    <!--ejemplo <label for="usuario">Usuario:</label>-->
-                    <!--required es nuevo en html5, si el campo está vacío te avisa, pero cuidado, no valida la información-->
-                    <label >Usuario:</label><br><br>
-                        <input name="usuario" type="text" id="usuario" placeholder="Ingresa Usuario" autofocus="" required=""><br><br>
- 
-                    <label>Contraseña:</label><br><br>
-                        <input name="contrasenia" type="password" id="contrasenia" placeholder="Ingresa Password" required=""><br><br>
-                    <input type="submit" id="submit" name="submit" value="Ingresar" class="boton"></p>
-                    <input type="hidden" name="vaccion" value="login"/>
-                </form>
-                    
+                        <input type="hidden" name="accion" value="login"/>
+                        <p align="center">
+                            <!--A saber, el atributo for funciona como el id.-->
+                            <!--ejemplo <label for="usuario">Usuario:</label>-->
+                            <!--required es nuevo en html5, si el campo está vacío te avisa, pero cuidado, no valida la información-->
+                            <label >Usuario:</label><br><br>
+                            <input name="usuario" type="text" id="usuario" placeholder="Ingresa Usuario" autofocus="" required=""><br><br>
+
+                            <label>Contraseña:</label><br><br>
+                            <input name="contrasenia" type="password" id="contrasenia" placeholder="Ingresa Password" required=""><br><br>
+                            <input type="submit" id="submit" name="submit" value="Ingresar" class="boton"></p>
+                        <input type="hidden" name="vaccion" value="login"/>
+                    </form>
+
                 </div>
                 <!--fin cuerpo-->
             </div>
