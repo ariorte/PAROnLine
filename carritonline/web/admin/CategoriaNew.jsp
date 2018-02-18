@@ -10,30 +10,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    <link href="<%= request.getContextPath()%>/scripts/css.css" rel="stylesheet" type="text/css" />
+        <link href="<%= request.getContextPath()%>/scripts/css.css" rel="stylesheet" type="text/css" />
     </head>
     <body> 
         <div id='main'>
             <div id='cuerpocontainer'>
                 <h1>Bienvenid@ a CarritOnline!<script src="<%= request.getContextPath()%>/scripts/contador.js"></script></h1>
                 <hr>
-                <nav>
-                    <jsp:include page="menu.jsp" />
-               </nav>
-                 <hr>
+                <jsp:include page="menu.jsp" />
+                <hr>
                 <br>
-    
-        <h1>Nueva Categoria</h1>
-        <form action="/carritonline/CategoriaServlets">
-            <table>
-                <tr>
-                    <td>Descripcion</td>
-                    <td><input type="text" name="descripcion"/></td>
-                </tr>
-            </table>
-            <input type="hidden" name="vaccion" value="GrabarNuevo"/>
-            <input type="submit" value="Grabar"/>
-        </form>
+
+                <h1>Nueva Categoria</h1>
+                <form action="/carritonline/CategoriaServlets">
+                    <table>
+                        <tr>
+                            <td>Descripcion</td>
+                            <td><input type="text" name="descripcion"/></td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="vaccion" value="GrabarNuevo"/>
+                    <input type="submit" value="Grabar"/>
+                </form>
             </div>
         </div>
     </body>
