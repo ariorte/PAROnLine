@@ -17,11 +17,21 @@
         <title>JSP Page</title>
         <%@page import="py.una.pol.par.controllers.s" %>
         <link href="<%= request.getContextPath()%>/scripts/css.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+            function validarUsuarioIngresado(){
+                let idUser = parseInt(document.getElementById("idUser").value);
+                if(idUser == -1){
+                    alert("Debe iniciar sesión para confirmar la compra");
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </head>
     <body>
         <div id='main'>
             <div id='cuerpocontainer'>
-                <h1>Bienvenid@ a CarritOnline!</h1>
+                <h1>Bienvenid@ a IT Services!</h1>
                 <hr>
                 <jsp:include page="menu.jsp" />
                 <hr>
@@ -64,9 +74,9 @@
                 <form action="/carritonline/ConfirmacionServlet">
                     <input type="hidden" name="vfecha" value="<%=formateadorFecha.format(date)%>"/>
                     <input type="hidden" name="vtotalpagar" value="<%=totalpagar%>"/>
-                    <input type="hidden" name="viduser" value="<%=idUser%>"/>
+                    <input type="hidden" id="idUser" name="viduser" value="<%=idUser%>"/>
                     <input type="hidden" name="vaccion" value="Confirmacion_compra"/>
-                    <input type="submit" value="Confirmar"/>
+                    <input type="submit" value="Confirmar" onclick="return validarUsuarioIngresado()"/>
                 </form>
                 <%}%>
             </div>

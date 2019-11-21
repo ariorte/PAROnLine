@@ -14,10 +14,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import py.una.pol.par.entities.Usuarios;
 import py.una.pol.par.util.conectar_db;
+import py.una.pol.par.util.Md5Java;
 
 /**
  *
- * @author Ariel y Fabricio
+ * @author Ariel
  */
 public class UsuarioManager {
     /*
@@ -46,7 +47,7 @@ public UsuarioManager() {
             pstmt = conectar.prepareStatement("insert into usuario (id_usuario,login_name,contrasena,apellido,nombre,tipo_usuario) values (?,?,?,?,?,?)");
             pstmt.setInt(1, c.getIdUsuario() );
             pstmt.setString(2, c.getLoginName() );
-            pstmt.setString(3, c.getContrasena() );
+            pstmt.setString(3, Md5Java.md5Java(c.getContrasena()));
             pstmt.setString(4, c.getApellido() );
             pstmt.setString(5, c.getNombre() );
             pstmt.setByte(6, c.getTipoUsuario() );
@@ -201,7 +202,7 @@ public UsuarioManager() {
     }
     
     public int getUsuarioByLoginNameID(String lname) {
-        int retValue = 0;
+        int retValue = -1;
         Connection conectar = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -260,12 +261,11 @@ public UsuarioManager() {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         
-        
         try {
             conectar = conectar_db.getConnection();
             pstmt = conectar.prepareStatement("select login_name, contrasena from usuario where login_name= ? and contrasena = ?");
             pstmt.setString(1, usuario );
-            pstmt.setString(2, contrasena );
+            pstmt.setString(2, Md5Java.md5Java(contrasena));
             rs = pstmt.executeQuery();
             
             if (rs.next()) {
@@ -285,10 +285,7 @@ public UsuarioManager() {
             }
             conectar_db.closeConnection(conectar);
         }
-        
-
         return false;
-    
     }
     
     /*public static void main(String[] args) {

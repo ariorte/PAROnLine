@@ -21,7 +21,7 @@ public class conectar_db {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(conectar_db.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Connection conectar = DriverManager.getConnection("jdbc:postgresql://localhost:5432/paronline", "postgres", "postgres");
+        Connection conectar = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "postgres");
         return conectar;
     }
 

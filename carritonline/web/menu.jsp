@@ -1,8 +1,3 @@
-<%--
-    Document   : menu
-    Created on : 27/10/2017, 09:31:16 PM
-    Author     : Ariel y Fabricio
---%>
 <%@page import="py.una.pol.par.entities.Usuarios"%>
 <%@page import="py.una.pol.par.model.UsuarioManager"%>
 <%@page import="py.una.pol.par.entities.Item"%>
@@ -54,7 +49,7 @@
             <a href="<%= request.getContextPath()%>/carrito.jsp" title="Carrito">
                 Carrito 
                 <img src="<%= request.getContextPath()%>/images/carrito1.png" width="24px" height="24px"> 
-                ( <%= subtotal%> )
+                ( <%=subtotal%> )
             </a>
         </li>
         <li style="width: 120px;">

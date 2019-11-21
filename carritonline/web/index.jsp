@@ -19,7 +19,7 @@
     <body> 
         <div id='main'>
             <div id='cuerpocontainer'>
-                <h1>Bienvenid@ a CarritOnline!<script src="<%= request.getContextPath()%>/scripts/contador.js"></script></h1>
+                <h1>Bienvenid@ a IT Services!<script src="<%= request.getContextPath()%>/scripts/contador.js"></script></h1>
                 <hr>
                 <jsp:include page="menu.jsp" />
                 <hr>

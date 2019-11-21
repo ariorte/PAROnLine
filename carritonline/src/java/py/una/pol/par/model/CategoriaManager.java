@@ -57,8 +57,9 @@ public class CategoriaManager {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("insert into categorias (nombre_categoria) values (?)");
-            pstmt.setString(1, c.getDescripcion());
+            pstmt = conectar.prepareStatement("insert into categorias (id_categoria, nombre_categoria) values (?,?)");
+            pstmt.setString(1, c.getIdCategoria());
+            pstmt.setString(2, c.getDescripcion());
             pstmt.execute();
 
         } catch (SQLException ex) {

@@ -69,12 +69,13 @@ public class ConfirmacionServlet extends HttpServlet {
             tm.insertar(tc);
 
              
-            request.setAttribute("carrito", null);
-
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            if (rd != null) {
-                rd.forward(request, response);
-            }
+//            request.setAttribute("carrito", null);
+            sesion.setAttribute("carrito", null);
+            response.sendRedirect("index.jsp");
+//            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+//            if (rd != null) {
+//                rd.forward(request, response);
+//            }
         }
 
     }

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : ProductoNew
-    Created on : 12/11/2017, 02:26:45 AM
-    Author     : Ariel y Fabricio
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

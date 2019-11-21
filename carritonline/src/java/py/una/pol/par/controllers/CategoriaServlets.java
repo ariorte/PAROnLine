@@ -18,7 +18,7 @@ import py.una.pol.par.model.CategoriaManager;
 
 /**
  *
- * @author Ariel y Fabricio
+ * @author Ariel
  */
 public class CategoriaServlets extends HttpServlet {
 
@@ -71,6 +71,7 @@ public class CategoriaServlets extends HttpServlet {
             String desc = request.getParameter("descripcion");
             Categoria c = new Categoria();
             c.setDescripcion(desc);
+            c.setIdCategoria(request.getParameter("idCategoria"));
 
             cm.insertar(c);
 

@@ -18,10 +18,11 @@ import py.una.pol.par.entities.Categoria;
 import py.una.pol.par.model.CategoriaManager;
 import py.una.pol.par.entities.Usuarios;
 import py.una.pol.par.model.UsuarioManager;
+import py.una.pol.par.util.Md5Java;
 
 /**
  *
- * @author Ariel y Fabricio
+ * @author Ariel
  */
 public class UsuariosServlet extends HttpServlet {
 
@@ -71,9 +72,11 @@ public class UsuariosServlet extends HttpServlet {
         if ("GrabarNuevo".equals(vaccion)) {
             String desc = request.getParameter("descripcion");
             Usuarios user = new Usuarios();
-            //c.setDescripcion(desc);
-            
-           // user.setIdUsuario(desc);
+            user.setNombre(request.getParameter("nombre"));
+            user.setApellido(request.getParameter("apellido"));
+            user.setLoginName(request.getParameter("login_name"));
+            user.setContrasena(request.getParameter("contrasena"));
+            user.setTipoUsuario(Byte.parseByte(request.getParameter("tipousuario")));
             
             um.insertar(user);
 
@@ -112,7 +115,7 @@ public class UsuariosServlet extends HttpServlet {
             user.setNombre(nombre);
             user.setApellido(apellido);
             user.setLoginName(login_name);
-            user.setContrasena(contrasena);
+            user.setContrasena(Md5Java.md5Java(contrasena));
             user.setTipoUsuario(tipousuario);
 
             um.update(user);

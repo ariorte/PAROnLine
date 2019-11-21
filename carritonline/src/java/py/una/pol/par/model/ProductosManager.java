@@ -122,7 +122,7 @@ public class ProductosManager {
         return retValue;
     }
 
-    public boolean update(Productos p) {
+    public boolean update(Productos p) throws SQLException {
         boolean retValue = true;
 
         Connection conn = null;
@@ -130,15 +130,22 @@ public class ProductosManager {
 
         try {
             conn = conectar_db.getConnection();
-            pstmt = conn.prepareStatement("update productos set descripcion = ? where id_categoria = ?");
+            pstmt = conn.prepareStatement("update productos "
+                    + "set descripcion = ?, preciounit = ?, cantidad = ? "
+                    + "where id_producto = ?");
             pstmt.setString(1, p.getDescripcion());
-            pstmt.setString(2, p.getId_producto());
+            pstmt.setInt(2, p.getPrecioUnit());
+            pstmt.setInt(3, p.getCantidad());
+            pstmt.setString(4, p.getId_producto());
             pstmt.execute();
 
         } catch (SQLException ex) {
             retValue = false;
             Logger.getLogger(CategoriaManager.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            if (pstmt != null) {
+                pstmt.close();
+            }
             conectar_db.closeConnection(conn);
         }
 

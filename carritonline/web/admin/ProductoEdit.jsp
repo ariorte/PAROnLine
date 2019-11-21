@@ -22,22 +22,22 @@
                 <hr>
                 <br>
                 <%
-                    Productos prod = (Productos) request.getAttribute("producto");
+                    Productos prod = (Productos) request.getSession().getAttribute("productos");
                 %>
                 <h1>Categoria <%= prod.getDescripcion()%></h1>
                 <form action="/carritonline/ProductosServlet">
                     <table>
                         <tr>
                             <td>Descripcion</td>
-                            <td><input type="text" name="descripcion" value="<%= prod.getDescripcion()%> "/></td>
+                            <td><input type="text" name="descripcion" value="<%= prod.getDescripcion()%>"/></td>
                         </tr>
                         <tr>
                             <td>Precio</td>
-                            <td><input type="text" name="precio" value="<%= prod.getPrecioUnit()%> "/></td>
+                            <td><input type="text" name="precio" value="<%= prod.getPrecioUnit()%>"/></td>
                         </tr>
                         <tr>
                             <td>Cantidad disponible</td>
-                            <td><input type="text" name="cantidad" value="<%= prod.getCantidad()%> "/></td>
+                            <td><input type="text" name="cantidad" value="<%= prod.getCantidad()%>"/></td>
                         </tr>
                     </table>
                     <input type="hidden" name="vid" value="<%= prod.getId_producto()%>"/>    

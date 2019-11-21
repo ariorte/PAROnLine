@@ -32,7 +32,7 @@ public class TransaccionManager {
 
         try {
             conectar = conectar_db.getConnection();
-            pstmt = conectar.prepareStatement("insert into transaccionscab (id_usuario,fecha,total,direccion_envio,estado) values (?,?,?,?,?)");
+            pstmt = conectar.prepareStatement("insert into transaccioncab (id_usuario,fecha,total,direccion_envio,estado) values (?,?,?,?,?)");
             //pstmt.setInt(1, tc.getID_Transacción());
             pstmt.setInt(1, tc.getId_Usuario());
             pstmt.setString(2, tc.getFecha());

@@ -42,7 +42,7 @@
                         </tr>
                         <tr>
                             <td>Contraseña</td>
-                            <td><input type="text" name="contrasena" value="<%= usu.getContrasena()%>"/></td>
+                            <td><input type="password" name="contrasena" value="<%= usu.getContrasena()%>"/></td>
                         </tr>
                         <tr>
                             <td>Tipo de usuario</td>

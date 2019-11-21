@@ -1,9 +1,3 @@
-<%-- 
-    Document   : UserNew
-    Created on : 12/11/2017, 02:27:09 AM
-    Author     : Ariel y Fabricio
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

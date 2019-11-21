@@ -7,19 +7,23 @@ package py.una.pol.par.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import py.una.pol.par.entities.Productos;
 import py.una.pol.par.model.ProductosManager;
 
 /**
  *
- * @author Ariel y Fabricio
+ * @author Ariel
  */
 @WebServlet(name = "ProductosServlet", urlPatterns = {"/ProductosServlet"})
 public class ProductosServlet extends HttpServlet {
@@ -36,10 +40,11 @@ public class ProductosServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         String vaccion = request.getParameter("vaccion");
         request.setAttribute("vaccion", vaccion);
 
+        HttpSession sesion = request.getSession(true);
         ProductosManager pm = new ProductosManager();
 
         if (vaccion == null) {
@@ -61,40 +66,54 @@ public class ProductosServlet extends HttpServlet {
             pm.delete(p);
 
             ArrayList<Productos> productos = pm.getAll();
-            request.setAttribute("productos", productos);
+            
+            sesion.setAttribute("productos", productos);
+            response.sendRedirect("admin/abm-productos.jsp");
+            
+//            request.setAttribute("productos", productos);
 
-            RequestDispatcher rd = request.getRequestDispatcher("/admin/abm-productos.jsp");
-            if (rd != null) {
-                rd.forward(request, response);
-            }
+//            RequestDispatcher rd = request.getRequestDispatcher("/admin/abm-productos.jsp");
+//            if (rd != null) {
+//                rd.forward(request, response);
+//            }
         }
 
         if ("GrabarNuevo".equals(vaccion)) {
             String desc = request.getParameter("descripcion");
             Productos prod = new Productos();
             prod.setDescripcion(desc);
+            prod.setCantidad(Integer.parseInt(request.getParameter("cantidad")));
+            prod.setPrecioUnit(Integer.parseInt(request.getParameter("precio")));
+            prod.setNombre_img(request.getParameter("imgproducto"));
+            prod.setId_categoria(request.getParameter("idcategoria"));
+            prod.setId_producto(request.getParameter("idproducto"));
 
             pm.insertar(prod);
 
             ArrayList<Productos> productos = pm.getAll();
-            request.setAttribute("productos", productos);
+            
+            sesion.setAttribute("productos", productos);
+            response.sendRedirect("admin/abm-productos.jsp");
+            
+//            request.setAttribute("productos", productos);
 
-            RequestDispatcher rd = request.getRequestDispatcher("/admin/abm-productos.jsp");
-            if (rd != null) {
-                rd.forward(request, response);
-            }
+//            RequestDispatcher rd = request.getRequestDispatcher("/admin/abm-productos.jsp");
+//            if (rd != null) {
+//                rd.forward(request, response);
+//            }
         }
 
         if ("Editar".equals(vaccion)) {
             String idProd = String.valueOf(request.getParameter("vid"));
             Productos prod = pm.getProductoById(idProd);
 
-            request.setAttribute("productos", prod);
-
-            RequestDispatcher rd = request.getRequestDispatcher("/admin/ProductoEdit.jsp");
-            if (rd != null) {
-                rd.forward(request, response);
-            }
+            sesion.setAttribute("productos", prod);
+            response.sendRedirect("admin/ProductoEdit.jsp");
+            
+//            RequestDispatcher rd = request.getRequestDispatcher("/admin/ProductoEdit.jsp");
+//            if (rd != null) {
+//                rd.forward(request, response);
+//            }
         }
 
         if ("GrabarModificado".equals(vaccion)) {
@@ -107,16 +126,20 @@ public class ProductosServlet extends HttpServlet {
             p.setDescripcion(desc);
             p.setPrecioUnit(precio);
             p.setCantidad(cantidad);
-
+                        
             pm.update(p);
 
             ArrayList<Productos> productos = pm.getAll();
-            request.setAttribute("productos", productos);
-
-            RequestDispatcher rd = request.getRequestDispatcher("/admin/abm-productos.jsp");
-            if (rd != null) {
-                rd.forward(request, response);
-            }
+            
+            sesion.setAttribute("productos", productos);
+            response.sendRedirect("admin/abm-productos.jsp");
+            
+//            request.setAttribute("productos", productos);
+//
+//            RequestDispatcher rd = request.getRequestDispatcher("/admin/abm-productos.jsp");
+//            if (rd != null) {
+//                rd.forward(request, response);
+//            }
         }
         
     }
@@ -133,7 +156,11 @@ public class ProductosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -147,7 +174,11 @@ public class ProductosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductosServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -21,6 +21,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="<%= request.getContextPath()%>/scripts/css.css" rel="stylesheet" type="text/css" />
+        
+        <script type="text/javascript">
+            function validarCantidad(){
+                let cantidadProducto = parseInt(document.getElementById("txt-cantidad").value);
+                if(cantidadProducto == 0){
+                    alert("No se puede agregar cantidad cero");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        
     </head>
     <body>
         <div id='main'>
@@ -50,7 +62,7 @@
                             <b>Cantidad a Comprar: </b>
                             <input type="hidden" value="<%=p.getId_producto()%>" name="idproducto" />
                             <input type="number" value="0" id="txt-cantidad" name="cantidad" width="10%" />
-                            <button type="submit">
+                            <button type="submit" onclick="return validarCantidad()">
                                 Añadir al carrito
                             </button>
                         </form>

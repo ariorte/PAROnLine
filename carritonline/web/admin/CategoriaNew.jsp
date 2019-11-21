@@ -25,6 +25,10 @@
                 <form action="/carritonline/CategoriaServlets">
                     <table>
                         <tr>
+                            <td>Id Categoria</td>
+                            <td><input type="text" name="idCategoria"/></td>
+                        </tr>
+                        <tr>
                             <td>Descripcion</td>
                             <td><input type="text" name="descripcion"/></td>
                         </tr>
