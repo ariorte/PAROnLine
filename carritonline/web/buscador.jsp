@@ -30,19 +30,23 @@
                     //           for (Productos p : lista) {
 
                 %>
-                <div id="topsUserBox">
-                    <div class="box_title">
-                        <div class="box_txt"><%=p.getDescripcion()%></div>
+                <%if(p != null){%>
+                    <div id="topsUserBox">
+                        <div class="box_title">
+                            <div class="box_txt"><%=p.getDescripcion()%></div>
+                        </div>
+                        <div class="box_cuerpo">
+                            <br/><br/> 
+                            <div id="center" class="avatar" style="background-image: url('<%= request.getContextPath()%>/images/<%= p.getNombre_img()%>.png')"></div>
+                            <p align="center"> <b>Precio:</b> <%=p.getPrecioUnit()%> <br>			
+                                <!--<p align="center"> <a href="#">Modificar</a> ||-->
+                                <a href="detalleProducto.jsp?id=<%=p.getId_producto()%>">Ver detalles</a></p>  
+                        </div>
+                        <br>
                     </div>
-                    <div class="box_cuerpo">
-                        <br/><br/> 
-                        <div id="center" class="avatar" style="background-image: url('<%= request.getContextPath()%>/images/<%= p.getNombre_img()%>.png')"></div>
-                        <p align="center"> <b>Precio:</b> <%=p.getPrecioUnit()%> <br>			
-                            <!--<p align="center"> <a href="#">Modificar</a> ||-->
-                            <a href="detalleProducto.jsp?id=<%=p.getId_producto()%>">Ver detalles</a></p>  
-                    </div>
-                    <br>
-                </div>
+                <%}else{%>
+                    <div>No se encuentra el producto por la descripción</div>
+                <%}%>
             </div>
         </div>
     </body>

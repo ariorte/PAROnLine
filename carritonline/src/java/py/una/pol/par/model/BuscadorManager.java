@@ -18,7 +18,7 @@ import py.una.pol.par.util.conectar_db;
 
 /**
  *
- * @author Ariel y Fabricio
+ * @author Ariel
  */
 public class BuscadorManager {
 
@@ -26,25 +26,26 @@ public class BuscadorManager {
     }
     
     public Productos buscarya(String buscado) {
-        Productos retValue = new Productos();
+        Productos retValue = null;
 
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 //$sql = "SELECT * FROM prov_tab WHERE provincia LIKE '%" .$busqueda. "%' ORDER BY provincia";
+        String querySelect = "select id_producto, cantidad, descripcion, preciounit, nombre_img, id_categoria from productos where descripcion like '%"+buscado+"%'";
         try {
             conn = conectar_db.getConnection();
-            pstmt = conn.prepareStatement("select id_producto, cantidad, descripcion, preciounit, nombre_img, id_categoria from productos where descripcion = ? ");
-            pstmt.setString(1, buscado);
+            pstmt = conn.prepareStatement(querySelect);
+//            pstmt.setString(1, buscado);
             rs = pstmt.executeQuery();
             while (rs.next()) {
+                retValue = new Productos();
                 retValue.setId_producto(rs.getString(1));
                 retValue.setCantidad(rs.getInt(2));
                 retValue.setDescripcion(rs.getString(3));
                 retValue.setPrecioUnit(rs.getInt(4));
                 retValue.setNombre_img(rs.getString(5));
                 retValue.setId_categoria(rs.getString(6));
-                
             }
 
         } catch (SQLException ex) {
